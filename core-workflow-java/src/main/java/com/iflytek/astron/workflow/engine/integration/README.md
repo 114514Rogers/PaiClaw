@@ -1,0 +1,7 @@
+## intergration
+
+Node节点与外部系统的集成工作空间
+
+engin的node，主要用于定义流程编排节点；但是node具体执行，可能得依托于其他的服务能力来提供
+
+比如 LlmNode，不同的LLM提供商的交互方式可能并不一样，如果直接在LlmNode中维护对应的llm交互逻辑，显然会导致llmNode的复杂度飙升；基于此，我们将具体llmNode依赖的能力，迁移到intergration中，可以是调用外部接口能力、也可以直接在这里面进行实现

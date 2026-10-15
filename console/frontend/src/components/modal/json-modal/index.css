@@ -1,0 +1,22 @@
+.json-editor {
+  .monaco-editor,
+  .monaco-editor .margin,
+  .monaco-editor-background,
+  .monaco-editor .view-overlays {
+    outline: none;
+    border: none !important;
+    background: transparent !important;
+  }
+
+  .monaco-editor .margin {
+    border-right: none !important;
+  }
+
+  .monaco-editor .view-overlays .current-line {
+    border: none !important;
+  }
+
+  .monaco-editor .monaco-scrollable-element {
+    border-left: none !important;
+  }
+}

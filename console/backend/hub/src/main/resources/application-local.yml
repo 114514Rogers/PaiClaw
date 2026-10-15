@@ -1,0 +1,72 @@
+# application-local.yml - 本地开发配置
+spring:
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/${MYSQL_DB:paiflow-console}?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:123456}
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:}
+      database: 1
+
+# MinIO 本地配置
+s3:
+  endpoint: ${OSS_ENDPOINT:http://localhost:9000}
+  remoteEndpoint: ${OSS_REMOTE_ENDPOINT:http://localhost:9000}
+  accessKey: ${OSS_ACCESS_KEY_ID:minioadmin}
+  secretKey: ${OSS_ACCESS_KEY_SECRET:minioadmin}
+  bucket: ${OSS_BUCKET_CONSOLE:console}
+
+# Spark LLM 配置（讯飞开放平台）
+spark:
+  app-id: ${common.appid}
+  api-key: ${common.apiKey}
+  api-secret: ${common.apiSecret}
+  api:
+    password: ${common.apiPassword}
+  rtasr-appId: ${SPARK_RTASR_APPID:f740451b}
+  rtasr-key: ${SPARK_RTASR_KEY:your-rtasr-key}
+  image-appId: ${common.imgAppid}
+  image-apiKey: ${common.imgApiKey}
+  image-apiSecret: ${common.imgApiSecret}
+
+# Workflow 本地服务地址
+workflow:
+  chatUrl: ${api.url.workflow}/api/v1/workflow/chat/stream
+  debugUrl: ${api.url.workflow}/api/v1/workflow/chat/stream
+  resumeUrl: ${api.url.workflow}/api/v1/workflow/chat/resume
+
+api:
+  url:
+    workflow: ${WORKFLOW_URL:http://127.0.0.1:7880}
+
+# Common 通用配置（用于 Workflow 节点的默认 AK/SK）
+common:
+  appid: ${SPARK_APP_ID:f740451b}
+  apiKey: ${SPARK_API_KEY:ebaf9dad(useyouapikey)7a87934}
+  apiSecret: ${SPARK_API_SECRET:ZGE0YjQ(useyouapikey)DEwYzI0M2Q1}
+  apiPassword: ${SPARK_API_PASSWORD:neVbEUF(useyouapikey)aSHonPvwYWLlkD}
+  imgAppid: ${SPARK_IMAGE_APP_ID:f740451b}
+  imgApiKey: ${SPARK_IMAGE_API_KEY:ebaf9d(useyouapikey)47a87934}
+  imgApiSecret: ${SPARK_IMAGE_API_SECRET:ZGE0Y(useyouapikey)zI0M2Q1}
+
+# MAAS 工作流本地配置（直连 Python workflow 服务）
+maas:
+  appId: ${common.appid}
+  apiKey: ${common.apiKey}
+  apiSecret: ${common.apiSecret}
+  synchronizeWorkFlow: http://localhost:8080/workflow
+  cloneWorkFlow: http://localhost:8080/workflow/internal-clone
+  getInputs: http://localhost:8080/workflow/get-inputs-info
+  canPublishUrl: http://localhost:8080/workflow/can-publish
+  publishApi: ${api.url.workflow}/workflow/v1/publish
+  authApi: ${api.url.workflow}/workflow/v1/auth
+  mcpRegister: http://localhost:8080/workflow/release
+  workflowConfig: http://localhost:8080/workflow/get-flow-advanced-config
+  workflowVersion: http://localhost:8080/workflow/version
+  publish: http://localhost:8080/workflow/publish
+  consumerId: ${MAAS_CONSUMER_ID:680ab54f}
+  consumerKey: ${MAAS_CONSUMER_KEY:7b709739e(useyouapikey)7603a83}
+  consumerSecret: ${MAAS_CONSUMER_SECRET:NjhmY2NmM(useyouapikey)ZjcyZjMy}
