@@ -282,11 +282,6 @@ docker compose logs -f console-hub
 docker compose logs -f core-workflow-java
 ```
 
-## 学习资源
-
-- **项目教程**：https://paicoding.com/column/13/1
-- **项目介绍**：https://javabetter.cn/zhishixingqiu/paiflow.html
-
 ## 贡献指南
 
 如果您有任何建议或发现问题，欢迎提交 Issue 或 Pull Request。
