@@ -13,8 +13,6 @@
 
 **PaiFlow（派派工作流）** 是一个企业级的 AI Agent 工作流编排平台，支持用户通过可视化方式编排大模型节点、工具节点和流程逻辑等。类似于 Dify、Coze、n8n 的可视化流程编排平台。
 
-![](https://cdn.tobebetterjavaer.com/stutymore/README-20251028201755.png)
-
 ### 核心特性
 
 - **可视化工作流编排**：拖拽式节点编排，支持 LLM 节点、工具节点、条件分支等
